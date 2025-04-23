@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.style1 {
+    /* font-family: Century Gothic; */
+    /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-weight: 100
+}
+
+.style2 {
+  font-family: 'Poppins';
+  font-weight: 100
+}
+
+table, tr, th, td, a, p, h1, h2, h3, h4, h5, h6, button, label, option {
+  font-family: 'Poppins';
+}
+
+/* Modal Slider */
+.modal-dialog {max-width: 70%;}
+.modal-dialog-slideout {min-height: 100%; margin: 0 0 0 auto; background: #fff;}
+.modal.fade .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(100%, 0) scale(1); transform: translate(100%, 0) scale(1);}
+.modal.fade.show .modal-dialog.modal-dialog-slideout { -webkit-transform: translate(0, 0); transform: translate(0, 0); display: flex; align-items: stretch; -webkit-box-align: stretch; height: 100%;}
+.modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body {overflow-y: auto;overflow-x: hidden;}
+.modal-dialog-slideout .modal-content {border: 0;}
+.modal-dialog-slideout .modal-header,.modal-dialog-slideout .modal-footer {height: 4rem;display: block;}
+.modal-content, .modal-header, .modal-body, .modal-footer {font-family: 'Poppins';}
+
+/* DataTable Search Modifier */
+.dataTables_filter label { font-size: 0px; }
+
+.dataTables_filter input {
+  width: 300px;
+  margin-left: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.title {
+  font-size: 15px;
+}
+
+#master-auth-groups-menus-reports {
+  font-size: 12px;
+  background-color: #FFFFFF;
+  padding: 6px;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+/* 
+* Master Auth Groups
+*/
+
+
+/* Modal New Auth Groups */
+.createAuthGroups.show { padding-right: 0 !important; }
+.createAuthGroups label, .createAuthGroups input, .createAuthGroups textarea, .createAuthGroups button {font-family: 'Poppins'; font-size: 13px;}
+
+/* DataTable Menus */
+#menusDataTable_filter label { font-size: 0px; }
+#menusDataTable th, #menusDataTable td { font-size: 13px; }
+#menusDataTable_info, #menusDataTable_paginate li { font-size: 13px; }
+
+/* DataTable Reports */
+#reportsDataTable_filter label { font-size: 0px; }
+#reportsDataTable th, #reportsDataTable td { font-size: 13px; }
+#reportsDataTable_info, #reportsDataTable_paginate li { font-size: 13px; }
+
+
+.updateUsersAuthGroup.show { padding-right: 0 !important; }
+.updateUsersAuthGroup label, .updateUsersAuthGroup input, .updateUsersAuthGroup textarea, .updateUsersAuthGroup button {font-family: 'Poppins'; font-size: 13px;}
+
+.updateAuthGroup.show { padding-right: 0 !important; }
+.updateAuthGroup label, .updateAuthGroup input, .updateAuthGroup textarea, .updateAuthGroup button {font-family: 'Poppins'; font-size: 13px;}
+
+
+/* 
+* Master Menus
+*/
+
+.createMenus.show { padding-right: 0 !important; }
+.createMenus label, .createMenus input, .createMenus textarea, .createMenus button {font-family: 'Poppins'; font-size: 13px;}
+
+.updateMenus.show { padding-right: 0 !important; }
+.updateMenus label, .updateMenus input, .updateMenus textarea, .updateMenus button {font-family: 'Poppins'; font-size: 13px;}
+
+/*
+* Master Reports
+*/
+
+.createMasterReport.show { padding-right: 0 !important; }
+.createMasterReport label, .createMasterReport input, .createMasterReport textarea, .createMasterReport button {font-family: 'Poppins'; font-size: 13px;}
+
