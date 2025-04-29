@@ -129,37 +129,43 @@ class AuthController extends Controller
                 // }
 
                 // Ambil header dari list menu yang dikasih
-                $headers = DB::select("SELECT id, header, ikon, tipe FROM tafis_menus WHERE id IN (SELECT distinct parent_id FROM tafis_menus WHERE id IN (select id_menu FROM tafis_auth WHERE id_group IN (select id_auth_group FROM tafis_auth_users WHERE nik = '$nik')) and tipe = 'submenu' order by parent_id desc)");
+                $headers = DB::select("SELECT id, header as nama, url, ikon, tipe FROM tafis_menus WHERE id IN (SELECT distinct parent_id FROM tafis_menus WHERE id IN (select id_menu FROM tafis_auth WHERE id_group IN (select id_auth_group FROM tafis_auth_users WHERE nik = '$nik')) and tipe = 'submenu' order by parent_id desc)");
                 $headers = json_decode(json_encode($headers), true);
                 
-                foreach ($headers as $header) {
+
+                foreach ($headers as $i => $header) {
                     $id = $header['id'];
                     
                     // ambil list menunya, sampe sini dulu 
-                    $submenus = DB::select("SELECT * FROM tafis_menus WHERE id IN (select id_menu FROM tafis_auth WHERE id_group IN (select id_auth_group FROM tafis_auth_users WHERE nik = '$nik')) and tipe = 'submenu' and parent_id = $id order by urutan");
+                    $submenus = DB::select("SELECT nama, url, ikon FROM tafis_menus WHERE id IN (select id_menu FROM tafis_auth WHERE id_group IN (select id_auth_group FROM tafis_auth_users WHERE nik = '$nik')) and tipe = 'submenu' and parent_id = $id order by urutan");
                     $submenus = json_decode(json_encode($submenus), true);
-                    
+
                     foreach ($submenus as $submenu) {
-                        // sampe sini, keknya flownya ada yang salah 
+                        $headers[$i]["submenus"] = $submenus; 
                     }
 
+                    $authMenus[] = $headers[$i];
+                }
 
-                } 
-                
+           
                 // menus
                 $menus = DB::select("SELECT * FROM tafis_menus WHERE id IN (SELECT ID FROM tafis_menus WHERE id IN (SELECT id_menu FROM tafis_auth WHERE id_group IN (SELECT id_auth_group FROM tafis_auth_users WHERE nik = '$nik' ) ) and tipe = 'menu') order by nama"); 
                 $menus = json_decode(json_encode($menus), true);
-
+                
                 foreach ($menus as $menu) {
                     $authMenus[] = array(
+                        "id" => $menu["id"],
                         "nama" => $menu['nama'],
                         "url" => $menu['url'],
                         "ikon" => $menu['ikon'],
                         "tipe" => $menu['tipe'],
                     ); 
                 }
+                
+                usort($authMenus, function ($a, $b) {
+                    return $a['nama'] <=> $b['nama'];
+                });
 
-                // dd($authMenus);
 
                 // Set Session
                 Session::put([

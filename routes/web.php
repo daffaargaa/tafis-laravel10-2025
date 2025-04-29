@@ -30,6 +30,7 @@ Route::group(['middleware' => 'authenticated'], function() {
 
     // Admin
     Route::prefix('admin')->name('admin.')->group(function() {
+        
         Route::get('/masterMenus', [AdminController::class, 'indexMasterMenus'])->name('master-menus.index');
         Route::get('/masterAuthGroups', [AdminController::class, 'indexMasterAuthGroups'])->name('master-auth-groups.index');
         Route::get('/masterReports', [AdminController::class, 'indexMasterReports'])->name('master-reports.index');
@@ -55,6 +56,7 @@ Route::group(['middleware' => 'authenticated'], function() {
             Route::post('/update', [AdminController::class, 'updateMasterReports'])->name('update');
             Route::get('/delete', [AdminController::class, 'deleteMasterReports'])->name('delete');
         });
+        
     });
 
     
@@ -62,4 +64,3 @@ Route::group(['middleware' => 'authenticated'], function() {
 
 
 });
-

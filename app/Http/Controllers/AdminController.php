@@ -38,7 +38,6 @@ class AdminController extends Controller
         ]);
     }
 
-
     public function createMasterAuthGroups (Request $request) {
         
         $validator = Validator::make($request->all(), [

@@ -1,34 +1,34 @@
  <!DOCTYPE html>
  <html lang="en">
- 
- <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tafis Application</title>
 
-    {{-- site favicon --}}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('vendor/images/logoLws.png') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('vendor/images/lws-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('vendor/images/lws-16x16.png') }}">
-    {{-- mobile specific metas --}}
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    {{-- css --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/styles/core.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/styles/icon-font.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/styles/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/styles/styles.css') }}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
- 
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Tafis Application</title>
+
+     {{-- site favicon --}}
+     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('vendor/images/logoLws.png') }}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('vendor/images/lws-32x32.png') }}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('vendor/images/lws-16x16.png') }}">
+     {{-- mobile specific metas --}}
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     {{-- css --}}
+     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/styles/core.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/styles/icon-font.min.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/styles/style.css') }}">
+     <link rel="stylesheet" href="{{ asset('vendor/styles/styles.css') }}">
+     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
      @yield('head')
-     
+
  </head>
- 
+
  <body>
-    @include('sweetalert::alert')
+     @include('sweetalert::alert')
      <div class="header">
          <div class="header-left">
              <div class="menu-icon dw dw-menu"></div>
@@ -78,7 +78,7 @@
                      </a>
                  </div>
              </div>
- 
+
              <div class="user-info-dropdown">
                  <div class="dropdown">
                      <a class="dropdown-toggle" href="" role="" data-toggle="dropdown">
@@ -104,7 +104,7 @@
              </div>
          </div>
      </div>
- 
+
      <div class="right-sidebar">
          <div class="sidebar-title">
              <h3 class="weight-600 font-16 text-blue">
@@ -122,13 +122,13 @@
                      <a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
                      <a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
                  </div>
- 
+
                  <h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
                  <div class="sidebar-btn-group pb-30 mb-10">
                      <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
                      <a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
                  </div>
- 
+
                  <h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
                  <div class="sidebar-radio-group pb-10 mb-10">
                      <div class="custom-control custom-radio custom-control-inline">
@@ -150,7 +150,7 @@
                                  class="fa fa-angle-double-right"></i></label>
                      </div>
                  </div>
- 
+
                  <h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
                  <div class="sidebar-radio-group pb-30 mb-10">
                      <div class="custom-control custom-radio custom-control-inline">
@@ -190,14 +190,14 @@
                                  class="dw dw-next"></i></label>
                      </div>
                  </div>
- 
+
                  <div class="reset-options pt-30 text-center">
                      <button class="btn btn-danger" id="reset-settings">Reset Settings</button>
                  </div>
              </div>
          </div>
      </div>
- 
+
      <div class="left-side-bar">
          <div class="brand-logo">
              <a href="">
@@ -232,7 +232,7 @@
                              </li>
                          </ul>
                      </li>
- 
+
                      {{-- @if (session('menus'))
                      <li class="dropdown"> 
                          @foreach (session('menus') as $item)
@@ -254,31 +254,35 @@
                      </li>
                      @endif        --}}
 
-                    @if (session('authMenus'))
-                    @foreach (session('authMenus') as $item)
-                    <li class="dropdown">
-                        <a href="{{ $item['tipe'] === "menu" ? $item['url'] : 'javascript:;' }}" class="dropdown-toggle {{ $item['tipe'] === "menu" ? 'no-arrow' : '' }}">
-                            <span class="micon {{ $item['ikon'] }} "></span><span class="mtext style1">{{ $item['nama'] }}</span>
-                        </a>
-                        @if (!empty($item['submenu']))
-                        @foreach($item['submenu'] as $submenu)
-                        <ul class="submenu">
-                            <li class="dropdown">
-                                <a href="{{ $submenu['url'] }}" class="dropdown-toggle no-arrow">
-                                    <span class="micon {{ $submenu['ikon'] }}"></span><span class="mtext style1">{{ $submenu['nama'] }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                        @endforeach
-                        @endif
-                    </li>
-                    @endforeach
-                    @endif
+
+                     @if (session('authMenus'))
+                         @foreach (session('authMenus') as $item)
+                             <li class="dropdown">
+                                 <a href="{{ $item['tipe'] === 'menu' ? $item['url'] : 'javascript:;' }}"
+                                     class="dropdown-toggle {{ $item['tipe'] === 'menu' ? 'no-arrow' : '' }}">
+                                     <span class="micon {{ $item['ikon'] }} "></span><span
+                                         class="mtext style1">{{ $item['nama'] }}</span>
+                                 </a>
+                                 @if (!empty($item['submenus']))
+                                     @foreach ($item['submenus'] as $submenu)
+                                         <ul class="submenu">
+                                             <li class="dropdown">
+                                                 <a href="{{ $submenu['url'] }}" class="dropdown-toggle no-arrow">
+                                                     <span class="micon {{ $submenu['ikon'] }}"></span><span
+                                                         class="mtext style1">{{ $submenu['nama'] }}</span>
+                                                 </a>
+                                             </li>
+                                         </ul>
+                                     @endforeach
+                                 @endif
+                             </li>
+                         @endforeach
+                     @endif
                  </ul>
              </div>
          </div>
      </div>
- 
+
      <div class="main-container">
          <div class="pd-ltr-20">
              @yield('body')
@@ -288,16 +292,16 @@
      <div class="footer">
          @yield('footer')
      </div>
- 
-     
- 
- 
-    {{-- javascript --}}
-    <script src="{{ asset('vendor/scripts/core.js') }}"></script>
-    <script src="{{ asset('vendor/scripts/script.min.js') }}"></script>
-    <script src="{{ asset('vendor/scripts/process.js') }}"></script>
-    <script src="{{ asset('vendor/scripts/layout-settings.js') }}"></script>
- 
+
+
+
+
+     {{-- javascript --}}
+     <script src="{{ asset('vendor/scripts/core.js') }}"></script>
+     <script src="{{ asset('vendor/scripts/script.min.js') }}"></script>
+     <script src="{{ asset('vendor/scripts/process.js') }}"></script>
+     <script src="{{ asset('vendor/scripts/layout-settings.js') }}"></script>
+
      <!-- <script src="src/plugins/apexcharts/apexcharts.min.js"></script> -->
      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
      <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
@@ -311,27 +315,28 @@
      <script src="{{ asset('src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
      <script src="{{ asset('vendor/scripts/dashboard.js') }}"></script>
      <script src="{{ asset('arsip/assets/DataTables/dataTables.min.js') }}"></script>
- 
+
      <!-- Tambahan CDN buat datatable URM Tax, Daffa 090224 -->
- 
+
      <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
      <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
      <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
      <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
      <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
      <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-     
+
      <!-- Tambahan Bootstrap 5, kalo jadi rusak ini yang dihapus -->
-     
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+     </script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      @yield('script')
 
-     <script>
-
-     </script>
+     <script></script>
  </body>
- 
+
  </html>
- 
